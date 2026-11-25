@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>菜单管理 · 学生请销假与晚归统计管理系统</title>
+<link rel="stylesheet" href="../mock.css"></head>
+<body><div class="layout">
+<aside class="sidebar">
+  <div class="brand"><span class="dot">勤</span>学生安全请假平台</div>
+  <nav class="nav"><div class="nav-group">管理端 · 系统治理</div><a href="admin-dashboard.html" class=""><span class="ic">◧</span>数据看板</a><a href="admin-rules.html" class=""><span class="ic">⚙</span>请假规则配置</a><a href="admin-users.html" class=""><span class="ic">☰</span>用户管理</a><a href="admin-roles.html" class=""><span class="ic">◎</span>角色管理</a><a href="admin-menus.html" class="on"><span class="ic">≡</span>菜单管理</a>
+   <div class="nav-group">个人</div>
+   <a href="common-profile.html"><span class="ic">◍</span>个人中心</a>
+  </nav>
+  <div style="padding:12px 16px;font-size:11px;color:#7C8798;border-top:1px solid #ffffff14">v1.0 · 管理视图</div>
+</aside>
+<div class="main">
+  <header class="topbar">
+    <div class="crumb">管理端 / <b>菜单管理</b></div>
+    <div class="topright">
+      <span class="bell">消息<i>6</i></span><span>帮助</span>
+      <span class="who"><img class="ava" src="assets/avatar-1.jpg" alt="">系统管理员 admin</span>
+    </div>
+  </header>
+  <div class="content"><div class="pagehead"><div><h1>菜单管理</h1><p>菜单按角色动态下发，前端路由由后端菜单树生成</p></div><div class="row"><button class="btn primary">新增菜单</button></div></div>
+<div class="card"><div class="table-wrap"><table><thead><tr><th>菜单名称</th><th>类型</th><th>路由</th><th>权限标识</th><th>排序</th><th>可见</th><th>操作</th></tr></thead><tbody><tr><td><span style='padding-left:0'>审批工作台</span></td><td>目录</td><td>/counselor</td><td>counselor:desk</td><td>1</td><td><span class="tag ok">显示</span></td><td><span class='ops'><a>编辑</a><a>新增子项</a></span></td></tr><tr><td><span style='padding-left:20px'>待我审批</span></td><td>菜单</td><td>/counselor/pending</td><td>leave:approve</td><td>1</td><td><span class="tag ok">显示</span></td><td><span class='ops'><a>编辑</a><a>删除</a></span></td></tr><tr><td><span style='padding-left:20px'>批量审批</span></td><td>按钮</td><td>-</td><td>leave:batch</td><td>2</td><td><span class="tag grey">隐藏</span></td><td><span class='ops'><a>编辑</a><a>删除</a></span></td></tr><tr><td><span style='padding-left:0'>未归核查</span></td><td>目录</td><td>/cases</td><td>case:list</td><td>2</td><td><span class="tag ok">显示</span></td><td><span class='ops'><a>编辑</a><a>新增子项</a></span></td></tr><tr><td><span style='padding-left:0'>晚归登记</span></td><td>菜单</td><td>/dorm/late</td><td>late:add</td><td>3</td><td><span class="tag ok">显示</span></td><td><span class='ops'><a>编辑</a><a>删除</a></span></td></tr><tr><td><span style='padding-left:0'>请假规则配置</span></td><td>菜单</td><td>/admin/rules</td><td>rule:config</td><td>8</td><td><span class="tag ok">显示</span></td><td><span class='ops'><a>编辑</a><a>删除</a></span></td></tr></tbody></table></div>
+<div class="notice mt">按需求「隐藏菜单管理选项」：菜单管理仅对管理员可见，且不出现在角色分配菜单的树中。</div></div></div>
+</div></div></body></html>

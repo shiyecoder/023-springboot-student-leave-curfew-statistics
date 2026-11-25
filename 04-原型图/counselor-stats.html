@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>班级统计 · 学生请销假与晚归统计管理系统</title>
+<link rel="stylesheet" href="../mock.css"></head>
+<body><div class="layout">
+<aside class="sidebar">
+  <div class="brand"><span class="dot">勤</span>学生安全请假平台</div>
+  <nav class="nav"><div class="nav-group">辅导员端 · 审批与核查</div><a href="counselor-desktop.html" class=""><span class="ic">◧</span>审批工作台</a><a href="counselor-cases.html" class=""><span class="ic">!</span>未归核查</a><a href="counselor-care.html" class=""><span class="ic">✎</span>关怀记录</a><a href="counselor-stats.html" class="on"><span class="ic">◑</span>班级统计</a>
+   <div class="nav-group">个人</div>
+   <a href="common-profile.html"><span class="ic">◍</span>个人中心</a>
+  </nav>
+  <div style="padding:12px 16px;font-size:11px;color:#7C8798;border-top:1px solid #ffffff14">v1.0 · 辅导员视图</div>
+</aside>
+<div class="main">
+  <header class="topbar">
+    <div class="crumb">辅导员端 / <b>班级统计</b></div>
+    <div class="topright">
+      <span class="bell">消息<i>6</i></span><span>帮助</span>
+      <span class="who"><img class="ava" src="assets/avatar-1.jpg" alt="">辅导员 陈立</span>
+    </div>
+  </header>
+  <div class="content"><div class="pagehead"><div><h1>班级统计</h1><p>软件工程 2201-2203 · 最近 30 天</p></div><div class="row"><select class="sel" style="min-width:140px"><option>最近 30 天</option><option>本月</option><option>本季度</option></select></div></div>
+<div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+  <div class="kpi"><div class="lb">请假人数 / 总人数</div><div class="vl">37 / 128</div><div class="dt">占比 28.9%</div></div>
+  <div class="kpi"><div class="lb">审批平均时效</div><div class="vl">3.6h</div><div class="dt">较上月 -0.8h</div></div>
+  <div class="kpi"><div class="lb">逾期销假</div><div class="vl">3</div><div class="dt">已全部核查</div></div>
+  <div class="kpi"><div class="lb">晚归人次</div><div class="vl">14</div><div class="dt">有假晚归 9 次不计违规</div></div>
+</div>
+<div class="grid2 mt">
+  <div class="chart"><h4>请假类型分布</h4><div class="sub">近 30 天 · 共 52 条</div>
+    <div class="donut"></div>
+    <div class="legend"><span><i style="background:#1F2937"></i>病假 42%</span><span><i style="background:#2F6B8A"></i>事假 26%</span><span><i style="background:#3B627A"></i>公假 18%</span><span><i style="background:#9AA8B6"></i>其他 14%</span></div>
+  </div>
+  <div class="chart"><h4>晚归时段分布</h4><div class="sub">按返寝时间聚合</div>
+    <div class="bars"><div style="height:35%"><span>22-23</span></div><div style="height:78%"><span>23-24</span></div><div style="height:52%"><span>00-01</span></div><div style="height:22%"><span>01-02</span></div><div style="height:10%"><span>02+</span></div></div>
+  </div>
+</div>
+<div class="card mt"><div class="card-title"><span class="bar"></span>重点关注学生</div>
+  <div class="table-wrap"><table><thead><tr><th>学生</th><th>班级</th><th>得分</th><th>等级</th><th>主要因素</th><th>最近事件</th><th>操作</th></tr></thead><tbody><tr><td>陈思远</td><td>软件 2202</td><td><span class='num'>76.5</span></td><td><span class="tag bad">高</span></td><td>逾期 2 次 + 晚归 3 次</td><td>10-30 超期未销假</td><td><a href='counselor-care.html'>核查</a></td></tr><tr><td>王梓萱</td><td>软件 2201</td><td><span class='num'>71.0</span></td><td><span class="tag bad">高</span></td><td>夜不归 1 次 + 连续晚归</td><td>10-31 23:30 未返寝</td><td><a href='counselor-care.html'>核查</a></td></tr><tr><td>李昊然</td><td>软件 2201</td><td><span class='num'>46.0</span></td><td><span class="tag wait">中</span></td><td>近 30 天 3 次请假</td><td>10-30 病假申请</td><td><a>查看</a></td></tr></tbody></table></div></div></div>
+</div></div></body></html>

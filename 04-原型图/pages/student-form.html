@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>发起请假 · 学生请销假与晚归统计管理系统</title>
+<style>
+/* NEW-023 学生请销假与晚归统计管理系统 · 原型公共样式
+   视觉方向：企业海军蓝，数据可读性优先 */
+:root{
+  --primary:#1F2937; --secondary:#2F6B8A; --accent:#3B627A;
+  --bg:#F5F7FA; --panel:#FFFFFF; --line:#E3E8EF; --text:#1F2937;
+  --muted:#6B7785; --success:#2E7D5B; --danger:#B3261E; --warn:#A9761F;
+  --radius:6px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);
+  color:var(--text);font-size:13px;line-height:1.6;-webkit-font-smoothing:antialiased}
+.num,.tnum{font-variant-numeric:tabular-nums}
+a{color:var(--accent);text-decoration:none}
+/* 布局 */
+.layout{display:flex;min-height:100vh}
+.sidebar{width:220px;background:var(--primary);color:#C9D2DC;display:flex;flex-direction:column;flex:0 0 220px}
+.brand{height:56px;display:flex;align-items:center;gap:8px;padding:0 16px;color:#fff;font-weight:600;
+  border-bottom:1px solid rgba(255,255,255,.08);letter-spacing:.5px}
+.brand .dot{width:22px;height:22px;border-radius:4px;background:var(--secondary);display:grid;place-items:center;font-size:11px}
+.nav{padding:10px 8px;flex:1;overflow:auto}
+.nav-group{font-size:11px;color:#7C8798;padding:12px 12px 6px;letter-spacing:1px}
+.nav a{display:flex;align-items:center;gap:9px;padding:9px 12px;border-radius:4px;color:#C9D2DC;font-size:13px;margin-bottom:2px}
+.nav a:hover{background:rgba(255,255,255,.06);color:#fff}
+.nav a.on{background:var(--secondary);color:#fff;font-weight:500}
+.nav a .ic{width:14px;text-align:center;opacity:.9;font-size:12px}
+.main{flex:1;min-width:0;display:flex;flex-direction:column}
+.topbar{height:56px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;
+  justify-content:space-between;padding:0 24px;flex:0 0 56px}
+.crumb{color:var(--muted);font-size:12px}
+.crumb b{color:var(--text);font-weight:500}
+.topright{display:flex;align-items:center;gap:18px;color:var(--muted);font-size:12px}
+.bell{position:relative}
+.bell i{position:absolute;top:-3px;right:-6px;background:var(--danger);color:#fff;font-size:9px;
+  border-radius:8px;padding:0 4px;font-style:normal}
+.who{display:flex;align-items:center;gap:8px;color:var(--text)}
+.ava{width:28px;height:28px;border-radius:50%;object-fit:cover;border:1px solid var(--line);background:#DDE4EC}
+.content{padding:24px;flex:1}
+/* 页头 */
+.pagehead{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:16px}
+.pagehead h1{font-size:18px;font-weight:600;letter-spacing:.2px}
+.pagehead p{color:var(--muted);font-size:12px;margin-top:4px}
+/* 卡片 */
+.card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.card+.card{margin-top:16px}
+.card-title{font-size:14px;font-weight:600;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+.card-title .bar{width:3px;height:14px;background:var(--secondary);border-radius:2px}
+/* 指标 */
+.kpis{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+.kpi{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.kpi .lb{color:var(--muted);font-size:12px}
+.kpi .vl{font-size:24px;font-weight:600;margin-top:6px;font-variant-numeric:tabular-nums}
+.kpi .dt{font-size:11px;color:var(--muted);margin-top:2px}
+.kpi .up{color:var(--danger)} .kpi .down{color:var(--success)}
+/* 筛选区 */
+.filters{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end}
+.field{display:flex;flex-direction:column;gap:5px}
+.field label{font-size:12px;color:var(--muted)}
+.inp,.sel{height:32px;border:1px solid var(--line);border-radius:4px;padding:0 10px;background:#fff;
+  font-size:13px;color:var(--text);min-width:180px;max-width:240px;font-family:inherit}
+.inp.sm{min-width:140px}
+/* 按钮 */
+.btn{height:32px;padding:0 14px;border-radius:4px;border:1px solid var(--line);background:#fff;
+  color:var(--text);font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:6px;font-family:inherit}
+.btn.primary{background:var(--primary);border-color:var(--primary);color:#fff}
+.btn.ghost{background:#fff;color:var(--secondary);border-color:#C6D5E0}
+.btn.danger{background:#fff;color:var(--danger);border-color:#E2B7B3}
+.btn.link{border:none;background:none;color:var(--accent);padding:0 6px;height:auto}
+.btn.sm{height:26px;font-size:12px;padding:0 10px}
+/* 表格 */
+.table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius);background:#fff}
+table{width:100%;border-collapse:collapse;font-size:13px;white-space:nowrap}
+th{background:#F8FAFC;color:var(--muted);font-weight:500;text-align:left;padding:11px 14px;
+  border-bottom:1px solid var(--line);font-size:12px}
+td{padding:11px 14px;border-bottom:1px solid #EEF2F6;color:var(--text)}
+tbody tr:hover{background:#F9FBFD}
+tbody tr:last-child td{border-bottom:none}
+td.num{font-variant-numeric:tabular-nums}
+.code{font-variant-numeric:tabular-nums;color:var(--secondary);font-weight:500}
+.ops{display:flex;gap:10px}
+/* 状态标签 */
+.tag{display:inline-flex;align-items:center;gap:4px;height:22px;padding:0 8px;border-radius:3px;font-size:12px;border:1px solid}
+.tag.draft{color:#6B7785;border-color:#D8DFE7;background:#F6F8FA}
+.tag.wait{color:var(--warn);border-color:#E8D6AE;background:#FCF7EC}
+.tag.ok{color:var(--success);border-color:#BEDCCD;background:#EFF7F3}
+.tag.run{color:var(--secondary);border-color:#C2D8E4;background:#EFF6FA}
+.tag.bad{color:var(--danger);border-color:#E5BCB8;background:#FBEFEE}
+.tag.grey{color:#6B7785;border-color:#D8DFE7;background:#F6F8FA}
+/* 分页 */
+.pager{display:flex;align-items:center;justify-content:space-between;padding:12px 2px 0;color:var(--muted);font-size:12px}
+.pager .pgs{display:flex;gap:4px;align-items:center}
+.pg{min-width:28px;height:28px;border:1px solid var(--line);border-radius:3px;background:#fff;
+  display:grid;place-items:center;font-size:12px;color:var(--text);padding:0 6px}
+.pg.on{background:var(--primary);color:#fff;border-color:var(--primary)}
+/* 抽屉/弹窗 */
+.drawer{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 8px 24px rgba(31,41,55,.12);
+  width:460px;position:fixed;right:24px;top:88px;overflow:hidden;z-index:9}
+.drawer .dh{padding:14px 18px;border-bottom:1px solid var(--line);font-weight:600;display:flex;justify-content:space-between}
+.drawer .db{padding:16px 18px}
+.drawer .df{padding:12px 18px;border-top:1px solid var(--line);display:flex;justify-content:flex-end;gap:10px}
+/* 时间轴 */
+.timeline{position:relative;padding-left:18px}
+.timeline:before{content:"";position:absolute;left:4px;top:4px;bottom:4px;width:1px;background:var(--line)}
+.tl-item{position:relative;padding-bottom:16px}
+.tl-item:before{content:"";position:absolute;left:-18px;top:5px;width:9px;height:9px;border-radius:50%;
+  background:#fff;border:2px solid var(--secondary)}
+.tl-item.done:before{background:var(--success);border-color:var(--success)}
+.tl-t{font-size:13px;font-weight:500}
+.tl-m{font-size:12px;color:var(--muted);margin-top:2px}
+/* 详情分组 */
+.groups{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+.g-item{background:#fff;padding:12px 16px}
+.g-item .lb{font-size:12px;color:var(--muted)}
+.g-item .vl{margin-top:4px;font-size:13px}
+/* 图表占位（原型用 CSS 柱/折线，正式版换 ECharts） */
+.chart{border:1px solid var(--line);background:#fff;border-radius:var(--radius);padding:14px}
+.chart h4{font-size:13px;font-weight:600;margin-bottom:4px}
+.chart .sub{font-size:11px;color:var(--muted);margin-bottom:10px}
+.bars{display:flex;align-items:flex-end;gap:10px;height:130px;padding-top:8px}
+.bars div{flex:1;background:linear-gradient(180deg,#2F6B8A,#3B627A);border-radius:2px 2px 0 0;opacity:.9;position:relative}
+.bars div span{position:absolute;bottom:-18px;left:0;right:0;text-align:center;font-size:10px;color:var(--muted)}
+.spark{height:130px;background:repeating-linear-gradient(0deg,#F1F4F8 0 1px,transparent 1px 26px);position:relative;border-bottom:1px solid var(--line)}
+.spark svg{position:absolute;inset:0;width:100%;height:100%}
+.donut{width:130px;height:130px;border-radius:50%;background:conic-gradient(#1F2937 0 42%,#2F6B8A 42% 68%,#3B627A 68% 86%,#9AA8B6 86% 100%);
+  display:grid;place-items:center;margin:6px auto}
+.donut:after{content:"";width:74px;height:74px;background:#fff;border-radius:50%}
+.legend{display:flex;flex-wrap:wrap;gap:10px;font-size:11px;color:var(--muted);justify-content:center;margin-top:8px}
+.legend i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.notice{background:#EFF6FA;border-left:3px solid var(--secondary);padding:10px 14px;border-radius:0 4px 4px 0;color:#2A576E;font-size:12px}
+.hint{color:var(--muted);font-size:12px}
+.row{display:flex;gap:10px;align-items:center}
+.mt{margin-top:16px}
+.mt8{margin-top:8px}
+/* 登录页 */
+.login{min-height:100vh;display:grid;grid-template-columns:1.05fr .95fr;background:#fff}
+.login .left{background:#16202C;color:#fff;padding:64px;display:flex;flex-direction:column;justify-content:space-between;
+  position:relative;overflow:hidden}
+.login .left:after{content:"";position:absolute;right:-120px;bottom:-120px;width:420px;height:420px;border-radius:50%;
+  background:radial-gradient(circle,#2F6B8A55,transparent 70%)}
+.login .left h2{font-size:30px;line-height:1.35;letter-spacing:1px}
+.login .left p{color:#9BA9B8;margin-top:14px;max-width:420px}
+.login .badges{display:flex;gap:10px;margin-top:26px;flex-wrap:wrap}
+.login .badges span{border:1px solid #ffffff22;border-radius:20px;padding:5px 14px;font-size:12px;color:#C9D2DC}
+.login .right{display:grid;place-items:center;padding:40px}
+.form-box{width:340px}
+.form-box h3{font-size:20px;margin-bottom:6px}
+.form-box .sub{color:var(--muted);font-size:12px;margin-bottom:24px}
+.form-box .fi{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.form-box .fi label{font-size:12px;color:var(--muted)}
+.form-box .fi input{height:40px;border:1px solid var(--line);border-radius:4px;padding:0 12px;font-size:13px;background:#FBFCFE}
+.form-box .btn.primary{width:100%;height:40px;justify-content:center;font-size:14px}
+.form-box .rows{display:flex;justify-content:space-between;font-size:12px;margin:6px 0 18px;color:var(--muted)}
+.tabs{display:flex;gap:20px;border-bottom:1px solid var(--line);margin-bottom:20px;font-size:13px}
+.tabs span{padding-bottom:8px;color:var(--muted);cursor:pointer}
+.tabs span.on{color:var(--primary);font-weight:600;border-bottom:2px solid var(--primary)}
+.duty{border-top:1px solid #ffffff1a;padding-top:18px;font-size:12px;color:#9BA9B8}
+
+</style></head>
+<body><div class="layout">
+<aside class="sidebar">
+  <div class="brand"><span class="dot">勤</span>学生安全请假平台</div>
+  <nav class="nav"><div class="nav-group">学生端 · 请假门户</div><a href="student-home.html" class=""><span class="ic">◧</span>首页概览</a><a href="student-list.html" class=""><span class="ic">☰</span>我的请假</a><a href="student-form.html" class="on"><span class="ic">＋</span>发起请假</a><a href="student-return.html" class=""><span class="ic">✓</span>返校销假</a><a href="student-risk.html" class=""><span class="ic">◔</span>我的风险画像</a>
+   <div class="nav-group">个人</div>
+   <a href="common-profile.html"><span class="ic">◍</span>个人中心</a>
+  </nav>
+  <div style="padding:12px 16px;font-size:11px;color:#7C8798;border-top:1px solid #ffffff14">v1.0 · 学生视图</div>
+</aside>
+<div class="main">
+  <header class="topbar">
+    <div class="crumb">学生端 / 我的请假 / <b>发起请假</b></div>
+    <div class="topright">
+      <span class="bell">消息<i>6</i></span><span>帮助</span>
+      <span class="who"><img class="ava" src="assets/avatar-1.jpg" alt="">学生 张若曦</span>
+    </div>
+  </header>
+  <div class="content"><div class="pagehead"><div><h1>发起请假</h1><p>系统将按规则自动匹配审批层级与必需材料</p></div><div class="row"><button class="btn">保存草稿</button><button class="btn primary">提交审批</button></div></div>
+<div class="grid2">
+  <div class="card"><div class="card-title"><span class="bar"></span>基础信息</div>
+    <div class="field mt8"><label>学生</label><input class="inp" value="张若曦 · 20220113" disabled style="min-width:360px;max-width:520px"></div>
+    <div class="field mt8"><label>学院班级</label><input class="inp" value="计算机学院 / 软件工程 2201 班" disabled style="min-width:360px;max-width:520px"></div>
+    <div class="field mt8"><label>请假类型 <span style="color:#B3261E">*</span></label>
+      <select class="sel" style="min-width:200px"><option>病假</option><option>事假</option><option>公假</option><option>实习</option><option>跨省外出</option></select></div>
+    <div class="row mt8"><div class="field"><label>开始时间 <span style="color:#B3261E">*</span></label><input class="inp sm" value="2026-11-02 08:00"></div>
+      <div class="field"><label>结束时间 <span style="color:#B3261E">*</span></label><input class="inp sm" value="2026-11-04 18:00"></div></div>
+    <div class="field mt8"><label>请假天数（自动计算）</label><input class="inp sm" value="2.5 天" disabled></div>
+    <div class="field mt8"><label>外出地点</label><input class="inp" value="市第一人民医院 · 城东院区" style="min-width:360px;max-width:520px"></div>
+    <div class="row mt8"><div class="field"><label>紧急联系人</label><input class="inp sm" value="张建国（父亲）"></div>
+      <div class="field"><label>联系电话</label><input class="inp sm" value="138****6621"></div></div>
+    <div class="field mt8"><label>交通方式</label><select class="sel" style="min-width:200px"><option>地铁</option><option>高铁</option><option>私家车</option><option>飞机</option></select></div>
+    <div class="field mt8"><label>请假事由 <span style="color:#B3261E">*</span></label>
+      <textarea class="inp" style="height:76px;min-width:420px;max-width:520px;padding:8px 10px">需住院复查，医生建议休息三天，附诊断证明。</textarea></div>
+  </div>
+  <div>
+    <div class="card"><div class="card-title"><span class="bar"></span>证明材料</div>
+      <div style="border:1px dashed #C6D5E0;border-radius:6px;padding:22px;text-align:center;background:#FBFCFE">
+        <div style="font-size:20px;color:#2F6B8A">⇪</div>
+        <div class="mt8">点击或拖拽上传诊断证明</div>
+        <div class="hint mt8">支持 JPG / PNG / PDF，单文件 ≤ 10MB；仅本人与审批人可见</div>
+      </div>
+      <div class="row mt8" style="border:1px solid #E3E8EF;border-radius:4px;padding:10px">
+        <img src="assets/proof-1.jpg" style="width:56px;height:42px;object-fit:cover;border-radius:3px" alt="">
+        <div style="flex:1"><div>诊断证明-20261031.jpg</div><div class="hint">386 KB · 已上传</div></div>
+        <button class="btn sm danger">删除</button>
+      </div>
+    </div>
+    <div class="card"><div class="card-title"><span class="bar"></span>自动校验结果</div>
+      <div class="timeline">
+        <div class="tl-item done"><div class="tl-t">时间不重叠</div><div class="tl-m">与 12 条历史记录比对，无冲突</div></div>
+        <div class="tl-item done"><div class="tl-t">无超期未销假</div><div class="tl-m">最近一次已销假 2026-10-30</div></div>
+        <div class="tl-item done"><div class="tl-t">材料齐备</div><div class="tl-m">病假 ≥ 2 天需诊断证明，已上传</div></div>
+        <div class="tl-item"><div class="tl-t" style="color:#A9761F">审批层级：辅导员 → 院系（3 天 ≥ 2 天阈值）</div><div class="tl-m">规则版本 v3 · 2026-09-01 生效</div></div>
+      </div>
+    </div>
+  </div>
+</div></div>
+</div></div></body></html>

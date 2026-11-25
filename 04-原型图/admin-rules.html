@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>请假规则配置 · 学生请销假与晚归统计管理系统</title>
+<link rel="stylesheet" href="../mock.css"></head>
+<body><div class="layout">
+<aside class="sidebar">
+  <div class="brand"><span class="dot">勤</span>学生安全请假平台</div>
+  <nav class="nav"><div class="nav-group">管理端 · 系统治理</div><a href="admin-dashboard.html" class=""><span class="ic">◧</span>数据看板</a><a href="admin-rules.html" class="on"><span class="ic">⚙</span>请假规则配置</a><a href="admin-users.html" class=""><span class="ic">☰</span>用户管理</a><a href="admin-roles.html" class=""><span class="ic">◎</span>角色管理</a><a href="admin-menus.html" class=""><span class="ic">≡</span>菜单管理</a>
+   <div class="nav-group">个人</div>
+   <a href="common-profile.html"><span class="ic">◍</span>个人中心</a>
+  </nav>
+  <div style="padding:12px 16px;font-size:11px;color:#7C8798;border-top:1px solid #ffffff14">v1.0 · 管理视图</div>
+</aside>
+<div class="main">
+  <header class="topbar">
+    <div class="crumb">管理端 / <b>请假规则配置</b></div>
+    <div class="topright">
+      <span class="bell">消息<i>6</i></span><span>帮助</span>
+      <span class="who"><img class="ava" src="assets/avatar-1.jpg" alt="">系统管理员 admin</span>
+    </div>
+  </header>
+  <div class="content"><div class="pagehead"><div><h1>请假规则配置</h1><p>审批层级规则 + 风险分层权重 · 当前生效 v3（2026-09-01）</p></div><div class="row"><button class="btn">历史版本</button><button class="btn primary">保存并发布</button></div></div>
+<div class="grid2">
+  <div class="card"><div class="card-title"><span class="bar"></span>审批层级规则</div>
+    <div class="table-wrap"><table><thead><tr><th>请假类型</th><th>天数阈值</th><th>外出范围</th><th>必需材料</th><th>审批层级</th><th>启用</th></tr></thead><tbody><tr><td>病假</td><td>≤ 2 天</td><td>市内</td><td>诊断证明</td><td>辅导员</td><td><span class='tag ok'>是</span></td></tr><tr><td>病假</td><td>&gt; 2 天</td><td>不限</td><td>诊断证明 + 病历</td><td>辅导员 → 院系</td><td><span class='tag ok'>是</span></td></tr><tr><td>事假</td><td>≤ 1 天</td><td>市内</td><td>无</td><td>辅导员</td><td><span class='tag ok'>是</span></td></tr><tr><td>公假</td><td>不限</td><td>不限</td><td>活动通知</td><td>辅导员 → 院系</td><td><span class='tag ok'>是</span></td></tr><tr><td>跨省外出</td><td>不限</td><td>跨省</td><td>家长确认 + 行程</td><td>辅导员 → 院系</td><td><span class='tag ok'>是</span></td></tr></tbody></table></div>
+    <div class="notice mt">阈值修改后仅影响新提交的申请；已在途单据按提交时的规则版本执行。</div>
+  </div>
+  <div class="card"><div class="card-title"><span class="bar"></span>风险分层权重（合计 100%）</div>
+    <div class="row"><div class="field"><label>近 30 天请假次数</label><input class="inp sm" value="20%"></div><div class="field"><label>累计天数</label><input class="inp sm" value="20%"></div></div>
+    <div class="row mt8"><div class="field"><label>晚归次数</label><input class="inp sm" value="20%"></div><div class="field"><label>逾期销假次数</label><input class="inp sm" value="25%"></div></div>
+    <div class="row mt8"><div class="field"><label>请假类型</label><input class="inp sm" value="10%"></div><div class="field"><label>审批驳回次数</label><input class="inp sm" value="5%"></div></div>
+    <div class="card-title mt"><span class="bar"></span>等级阈值</div>
+    <div class="row"><div class="field"><label>低关注上限</label><input class="inp sm" value="40"></div><div class="field"><label>中关注上限</label><input class="inp sm" value="70"></div></div>
+    <div class="notice mt">权重合计必须 = 100%，否则不允许发布；每次修改生成新版本号并记录生效时间。</div>
+    <div class="hint mt8">版本记录：v1 2026-03-01 · v2 2026-06-15 · v3 2026-09-01（当前）</div>
+  </div>
+</div>
+<div class="card mt"><div class="card-title"><span class="bar"></span>推荐采纳率与人工调整率</div>
+  <div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+    <div class="kpi"><div class="lb">计算总人次</div><div class="vl">1,246</div><div class="dt">近 30 天</div></div>
+    <div class="kpi"><div class="lb">推荐采纳率</div><div class="vl">91.2%</div><div class="dt">未调整即采纳</div></div>
+    <div class="kpi"><div class="lb">人工调整率</div><div class="vl">8.8%</div><div class="dt">全部填写原因</div></div>
+    <div class="kpi"><div class="lb">调整后风险下降</div><div class="vl">62%</div><div class="dt">后续 30 天无异常</div></div>
+  </div>
+</div></div>
+</div></div></body></html>

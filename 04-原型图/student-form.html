@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>发起请假 · 学生请销假与晚归统计管理系统</title>
+<link rel="stylesheet" href="../mock.css"></head>
+<body><div class="layout">
+<aside class="sidebar">
+  <div class="brand"><span class="dot">勤</span>学生安全请假平台</div>
+  <nav class="nav"><div class="nav-group">学生端 · 请假门户</div><a href="student-home.html" class=""><span class="ic">◧</span>首页概览</a><a href="student-list.html" class=""><span class="ic">☰</span>我的请假</a><a href="student-form.html" class="on"><span class="ic">＋</span>发起请假</a><a href="student-return.html" class=""><span class="ic">✓</span>返校销假</a><a href="student-risk.html" class=""><span class="ic">◔</span>我的风险画像</a>
+   <div class="nav-group">个人</div>
+   <a href="common-profile.html"><span class="ic">◍</span>个人中心</a>
+  </nav>
+  <div style="padding:12px 16px;font-size:11px;color:#7C8798;border-top:1px solid #ffffff14">v1.0 · 学生视图</div>
+</aside>
+<div class="main">
+  <header class="topbar">
+    <div class="crumb">学生端 / 我的请假 / <b>发起请假</b></div>
+    <div class="topright">
+      <span class="bell">消息<i>6</i></span><span>帮助</span>
+      <span class="who"><img class="ava" src="assets/avatar-1.jpg" alt="">学生 张若曦</span>
+    </div>
+  </header>
+  <div class="content"><div class="pagehead"><div><h1>发起请假</h1><p>系统将按规则自动匹配审批层级与必需材料</p></div><div class="row"><button class="btn">保存草稿</button><button class="btn primary">提交审批</button></div></div>
+<div class="grid2">
+  <div class="card"><div class="card-title"><span class="bar"></span>基础信息</div>
+    <div class="field mt8"><label>学生</label><input class="inp" value="张若曦 · 20220113" disabled style="min-width:360px;max-width:520px"></div>
+    <div class="field mt8"><label>学院班级</label><input class="inp" value="计算机学院 / 软件工程 2201 班" disabled style="min-width:360px;max-width:520px"></div>
+    <div class="field mt8"><label>请假类型 <span style="color:#B3261E">*</span></label>
+      <select class="sel" style="min-width:200px"><option>病假</option><option>事假</option><option>公假</option><option>实习</option><option>跨省外出</option></select></div>
+    <div class="row mt8"><div class="field"><label>开始时间 <span style="color:#B3261E">*</span></label><input class="inp sm" value="2026-11-02 08:00"></div>
+      <div class="field"><label>结束时间 <span style="color:#B3261E">*</span></label><input class="inp sm" value="2026-11-04 18:00"></div></div>
+    <div class="field mt8"><label>请假天数（自动计算）</label><input class="inp sm" value="2.5 天" disabled></div>
+    <div class="field mt8"><label>外出地点</label><input class="inp" value="市第一人民医院 · 城东院区" style="min-width:360px;max-width:520px"></div>
+    <div class="row mt8"><div class="field"><label>紧急联系人</label><input class="inp sm" value="张建国（父亲）"></div>
+      <div class="field"><label>联系电话</label><input class="inp sm" value="138****6621"></div></div>
+    <div class="field mt8"><label>交通方式</label><select class="sel" style="min-width:200px"><option>地铁</option><option>高铁</option><option>私家车</option><option>飞机</option></select></div>
+    <div class="field mt8"><label>请假事由 <span style="color:#B3261E">*</span></label>
+      <textarea class="inp" style="height:76px;min-width:420px;max-width:520px;padding:8px 10px">需住院复查，医生建议休息三天，附诊断证明。</textarea></div>
+  </div>
+  <div>
+    <div class="card"><div class="card-title"><span class="bar"></span>证明材料</div>
+      <div style="border:1px dashed #C6D5E0;border-radius:6px;padding:22px;text-align:center;background:#FBFCFE">
+        <div style="font-size:20px;color:#2F6B8A">⇪</div>
+        <div class="mt8">点击或拖拽上传诊断证明</div>
+        <div class="hint mt8">支持 JPG / PNG / PDF，单文件 ≤ 10MB；仅本人与审批人可见</div>
+      </div>
+      <div class="row mt8" style="border:1px solid #E3E8EF;border-radius:4px;padding:10px">
+        <img src="assets/proof-1.jpg" style="width:56px;height:42px;object-fit:cover;border-radius:3px" alt="">
+        <div style="flex:1"><div>诊断证明-20261031.jpg</div><div class="hint">386 KB · 已上传</div></div>
+        <button class="btn sm danger">删除</button>
+      </div>
+    </div>
+    <div class="card"><div class="card-title"><span class="bar"></span>自动校验结果</div>
+      <div class="timeline">
+        <div class="tl-item done"><div class="tl-t">时间不重叠</div><div class="tl-m">与 12 条历史记录比对，无冲突</div></div>
+        <div class="tl-item done"><div class="tl-t">无超期未销假</div><div class="tl-m">最近一次已销假 2026-10-30</div></div>
+        <div class="tl-item done"><div class="tl-t">材料齐备</div><div class="tl-m">病假 ≥ 2 天需诊断证明，已上传</div></div>
+        <div class="tl-item"><div class="tl-t" style="color:#A9761F">审批层级：辅导员 → 院系（3 天 ≥ 2 天阈值）</div><div class="tl-m">规则版本 v3 · 2026-09-01 生效</div></div>
+      </div>
+    </div>
+  </div>
+</div></div>
+</div></div></body></html>

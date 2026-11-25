@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>审批工作台 · 学生请销假与晚归统计管理系统</title>
+<link rel="stylesheet" href="../mock.css"></head>
+<body><div class="layout">
+<aside class="sidebar">
+  <div class="brand"><span class="dot">勤</span>学生安全请假平台</div>
+  <nav class="nav"><div class="nav-group">辅导员端 · 审批与核查</div><a href="counselor-desktop.html" class="on"><span class="ic">◧</span>审批工作台</a><a href="counselor-cases.html" class=""><span class="ic">!</span>未归核查</a><a href="counselor-care.html" class=""><span class="ic">✎</span>关怀记录</a><a href="counselor-stats.html" class=""><span class="ic">◑</span>班级统计</a>
+   <div class="nav-group">个人</div>
+   <a href="common-profile.html"><span class="ic">◍</span>个人中心</a>
+  </nav>
+  <div style="padding:12px 16px;font-size:11px;color:#7C8798;border-top:1px solid #ffffff14">v1.0 · 辅导员视图</div>
+</aside>
+<div class="main">
+  <header class="topbar">
+    <div class="crumb">辅导员端 / <b>审批工作台</b></div>
+    <div class="topright">
+      <span class="bell">消息<i>6</i></span><span>帮助</span>
+      <span class="who"><img class="ava" src="assets/avatar-1.jpg" alt="">辅导员 陈立</span>
+    </div>
+  </header>
+  <div class="content"><div class="pagehead"><div><h1>审批工作台</h1><p>软件工程 2201-2203 · 待我审批 3 条 · 超期未归 2 条</p></div><div class="row"><button class="btn">批量通过</button><button class="btn primary">批量驳回</button></div></div>
+<div class="kpis" style="grid-template-columns:repeat(5,1fr)">
+  <div class="kpi"><div class="lb">待我审批</div><div class="vl">3</div><div class="dt">最紧急剩余 3h05m</div></div><div class="kpi"><div class="lb">本月审批</div><div class="vl">46</div><div class="dt">平均时效 3.6 小时</div></div>
+  <div class="kpi"><div class="lb">待销假</div><div class="vl">4</div><div class="dt">超期 1 条</div></div><div class="kpi"><div class="lb">未归核查</div><div class="vl">2</div><div class="dt">1 条处理中</div></div><div class="kpi"><div class="lb">重点关注学生</div><div class="vl">6</div><div class="dt">较上月 -1</div></div>
+</div>
+<div class="card mt"><div class="row" style="justify-content:space-between">
+  <div class="row"><span class="tag run">全部 58</span><span class="tag">待我审批 3</span><span class="tag">已流转 12</span><span class="tag bad">超期 1</span></div>
+  <div class="row"><select class="sel" style="min-width:160px"><option>按紧急度排序</option><option>按提交时间</option></select></div>
+</div></div>
+<div class="mt"><div class="table-wrap"><table><thead><tr><th>申请编号</th><th>学生</th><th>班级</th><th>类型</th><th>起止时间</th><th>天数</th><th>状态</th><th>时效</th><th>操作</th></tr></thead><tbody><tr><td><span class='code'>QJ202610300018</span></td><td>李昊然</td><td>软件 2201</td><td>病假</td><td>10-30 → 11-02</td><td><span class='num'>3.0</span></td><td><span class="tag wait">待辅导员审批</span></td><td><span class='hint'>剩余 5h20m</span></td><td><span class='ops'><a href='student-detail.html'>查看</a><a>通过</a><a>驳回</a></span></td></tr><tr><td><span class='code'>QJ202610300015</span></td><td>周文琪</td><td>软件 2202</td><td>事假</td><td>10-31 → 10-31</td><td><span class='num'>0.5</span></td><td><span class="tag wait">待辅导员审批</span></td><td><span class='hint'>剩余 18h</span></td><td><span class='ops'><a href='student-detail.html'>查看</a><a>通过</a><a>驳回</a></span></td></tr><tr><td><span class='code'>QJ202610290011</span></td><td>赵一鸣</td><td>软件 2201</td><td>跨省外出</td><td>11-01 → 11-05</td><td><span class='num'>5.0</span></td><td><span class="tag wait">待辅导员审批</span></td><td><span class='hint'>剩余 3h05m</span></td><td><span class='ops'><a href='student-detail.html'>查看</a><a>通过</a><a>驳回</a></span></td></tr><tr><td><span class='code'>QJ202610290006</span></td><td>孙可</td><td>软件 2203</td><td>病假</td><td>10-29 → 10-31</td><td><span class='num'>2.5</span></td><td><span class="tag run">待院系审批</span></td><td><span class='hint'>已流转</span></td><td><span class='ops'><a href='student-detail.html'>查看</a><a>通过</a><a>驳回</a></span></td></tr><tr><td><span class='code'>QJ202610280004</span></td><td>陈思远</td><td>软件 2202</td><td>事假</td><td>10-28 → 10-28</td><td><span class='num'>1.0</span></td><td><span class="tag wait">待销假</span></td><td><span class='hint'>超期 1 天</span></td><td><span class='ops'><a href='student-detail.html'>查看</a><a>通过</a><a>驳回</a></span></td></tr></tbody></table></div>
+<div class="pager"><span>共 58 条 · 每页
+  <select class="sel" style="height:26px;min-width:64px;max-width:70px;padding:0 4px"><option>10</option><option>20</option><option>50</option></select> 条</span>
+  <div class="pgs"><span class="pg">‹</span><span class="pg on">1</span><span class="pg">2</span><span class="pg">3</span><span class="pg">…</span><span class="pg">13</span><span class="pg">›</span></div></div></div>
+<div class="drawer"><div class="dh"><span>审批 · QJ202610300018</span><span class="hint">✕</span></div>
+  <div class="db">
+    <div class="hint">学生</div><div>李昊然 · 软件 2201 · 6 栋 408</div>
+    <div class="hint mt8">请假</div><div>病假 10-30 08:00 → 11-02 18:00（3.0 天）</div>
+    <div class="hint mt8">事由</div><div>急性肠胃炎，附门诊病历。</div>
+    <div class="hint mt8">风险分层</div><div>得分 46.0 · <span class="tag wait">中关注</span> · 近 30 天 3 次请假</div>
+    <div class="hint mt8">审批意见 <span style="color:#B3261E">*</span></div>
+    <textarea class="inp" style="width:100%;height:64px;padding:8px;min-width:0">已电话核实本人与家长，同意请假。</textarea>
+  </div>
+  <div class="df"><button class="btn">退回修改</button><button class="btn primary">通过</button></div>
+</div></div>
+</div></div></body></html>

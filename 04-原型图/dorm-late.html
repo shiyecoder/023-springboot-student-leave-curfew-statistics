@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>晚归登记 · 学生请销假与晚归统计管理系统</title>
+<link rel="stylesheet" href="../mock.css"></head>
+<body><div class="layout">
+<aside class="sidebar">
+  <div class="brand"><span class="dot">勤</span>学生安全请假平台</div>
+  <nav class="nav"><div class="nav-group">宿管端 · 值班台</div><a href="dorm-late.html" class="on"><span class="ic">◧</span>晚归登记</a><a href="dorm-verify.html" class=""><span class="ic">⌘</span>返校码核验</a>
+   <div class="nav-group">个人</div>
+   <a href="common-profile.html"><span class="ic">◍</span>个人中心</a>
+  </nav>
+  <div style="padding:12px 16px;font-size:11px;color:#7C8798;border-top:1px solid #ffffff14">v1.0 · 宿管视图</div>
+</aside>
+<div class="main">
+  <header class="topbar">
+    <div class="crumb">宿管端 / <b>晚归登记</b></div>
+    <div class="topright">
+      <span class="bell">消息<i>6</i></span><span>帮助</span>
+      <span class="who"><img class="ava" src="assets/avatar-1.jpg" alt="">宿管值班员 刘梅</span>
+    </div>
+  </header>
+  <div class="content"><div class="pagehead"><div><h1>晚归登记</h1><p>6 栋 · 值班员刘梅 · 2026-10-31 19:40</p></div><div class="row"><button class="btn primary">新增登记</button></div></div>
+<div class="grid2">
+  <div class="card"><div class="card-title"><span class="bar"></span>登记表单</div>
+    <div class="field mt8"><label>学生 <span style="color:#B3261E">*</span></label><input class="inp" placeholder="学号或姓名，支持刷卡" style="min-width:320px;max-width:420px"></div>
+    <div class="field mt8"><label>返寝时间 <span style="color:#B3261E">*</span></label><input class="inp sm" value="2026-10-31 23:42"></div>
+    <div class="field mt8"><label>晚归原因</label><select class="sel" style="min-width:200px"><option>实习加班</option><option>交通延误</option><option>就医</option><option>其他</option></select></div>
+    <div class="field mt8"><label>请假核验</label>
+      <div class="row"><input class="inp sm" value="自动匹配：QJ202610260007（事假 至 22:00）" style="min-width:320px"><span class="tag ok">有有效请假</span></div>
+      <div class="hint mt8">有效请假期间晚归不计入违规，但保留验证记录。</div></div>
+    <div class="field mt8"><label>现场说明</label><textarea class="inp" style="height:64px;min-width:320px;max-width:420px;padding:8px">学生出示请假单，22:10 后返寝，已口头提醒。</textarea></div>
+    <div class="row mt"><button class="btn">取消</button><button class="btn primary">提交登记</button></div>
+  </div>
+  <div class="card"><div class="card-title"><span class="bar"></span>今晚登记（6 条）</div>
+    <div class="table-wrap"><table><thead><tr><th>时间</th><th>学生</th><th>宿舍</th><th>原因</th><th>请假</th><th>是否违规</th></tr></thead><tbody><tr><td>23:42</td><td>赵一鸣</td><td>6-412</td><td>交通延误</td><td>有（至 22:00）</td><td><span class='tag ok'>否</span></td></tr><tr><td>23:20</td><td>王梓萱</td><td>6-305</td><td>未说明</td><td>无</td><td><span class='tag bad'>是 · 已生成工单</span></td></tr><tr><td>22:51</td><td>孙可</td><td>6-208</td><td>就医</td><td>有（至 23:00）</td><td><span class='tag ok'>否</span></td></tr><tr><td>22:33</td><td>刘子豪</td><td>6-411</td><td>实习加班</td><td>无</td><td><span class='tag bad'>是</span></td></tr><tr><td>22:18</td><td>周文琪</td><td>6-302</td><td>交通延误</td><td>有</td><td><span class='tag ok'>否</span></td></tr><tr><td>22:05</td><td>陈思远</td><td>6-210</td><td>其他</td><td>无</td><td><span class='tag bad'>是</span></td></tr></tbody></table></div></div>
+</div></div>
+</div></div></body></html>

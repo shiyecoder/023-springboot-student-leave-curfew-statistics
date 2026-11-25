@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="utf-8"><title>我的风险画像 · 学生请销假与晚归统计管理系统</title>
+<link rel="stylesheet" href="../mock.css"></head>
+<body><div class="layout">
+<aside class="sidebar">
+  <div class="brand"><span class="dot">勤</span>学生安全请假平台</div>
+  <nav class="nav"><div class="nav-group">学生端 · 请假门户</div><a href="student-home.html" class=""><span class="ic">◧</span>首页概览</a><a href="student-list.html" class=""><span class="ic">☰</span>我的请假</a><a href="student-form.html" class=""><span class="ic">＋</span>发起请假</a><a href="student-return.html" class=""><span class="ic">✓</span>返校销假</a><a href="student-risk.html" class="on"><span class="ic">◔</span>我的风险画像</a>
+   <div class="nav-group">个人</div>
+   <a href="common-profile.html"><span class="ic">◍</span>个人中心</a>
+  </nav>
+  <div style="padding:12px 16px;font-size:11px;color:#7C8798;border-top:1px solid #ffffff14">v1.0 · 学生视图</div>
+</aside>
+<div class="main">
+  <header class="topbar">
+    <div class="crumb">学生端 / <b>我的风险画像</b></div>
+    <div class="topright">
+      <span class="bell">消息<i>6</i></span><span>帮助</span>
+      <span class="who"><img class="ava" src="assets/avatar-1.jpg" alt="">学生 张若曦</span>
+    </div>
+  </header>
+  <div class="content"><div class="pagehead"><div><h1>我的风险画像</h1><p>请假行为风险分层 · 规则版本 v3 · 计算于 2026-10-30 20:00</p></div><div class="row"><span class="tag ok">低关注</span></div></div>
+<div class="kpis" style="grid-template-columns:repeat(4,1fr)">
+  <div class="kpi"><div class="lb">综合得分</div><div class="vl">28.5</div><div class="dt">满分 100 · 越高越需关注</div></div>
+  <div class="kpi"><div class="lb">关注等级</div><div class="vl" style="color:#2E7D5B">低关注</div><div class="dt">阈值：0-40 低 / 40-70 中 / 70+ 高</div></div>
+  <div class="kpi"><div class="lb">近 30 天请假</div><div class="vl">2 次</div><div class="dt">权重 20%</div></div>
+  <div class="kpi"><div class="lb">晚归次数</div><div class="vl">1 次</div><div class="dt">权重 20% · 有假晚归不计违规</div></div>
+</div>
+<div class="card mt"><div class="card-title"><span class="bar"></span>得分构成（可解释）</div>
+  <div class="bars">
+    <div style="height:38%"><span>请假频次 8.0</span></div><div style="height:24%"><span>累计天数 4.5</span></div>
+    <div style="height:16%"><span>晚归 3.0</span></div><div style="height:44%"><span>逾期销假 9.0</span></div>
+    <div style="height:12%"><span>请假类型 2.0</span></div><div style="height:10%"><span>驳回 2.0</span></div>
+  </div>
+  <div class="hint mt">每项得分 = 归一化指标 × 权重 × 100，缺失项不参与计算并在结果中标注。</div>
+</div>
+<div class="grid2 mt">
+  <div class="card"><div class="card-title"><span class="bar"></span>主要影响因素</div>
+    <div class="timeline">
+      <div class="tl-item done"><div class="tl-t">近 30 天请假 2 次（偏低）</div><div class="tl-m">低于专业平均 3.1 次</div></div>
+      <div class="tl-item done"><div class="tl-t">累计 13.1 天（中等）</div><div class="tl-m">含 1 次 4 天病假</div></div>
+      <div class="tl-item"><div class="tl-t" style="color:#A9761F">1 次逾期销假（需改进）</div><div class="tl-m">2026-09-28 超期 2 小时，已核销</div></div>
+    </div>
+  </div>
+  <div class="card"><div class="card-title"><span class="bar"></span>未满足条件与改进建议</div>
+    <ul style="padding-left:18px;color:#3B4A5A">
+      <li>请假结束后 2 小时内提交销假可避免逾期标记</li>
+      <li>返校码有效期仅 10 分钟，进楼前再生成</li>
+      <li>连续 3 晚晚归将升级为中关注</li>
+    </ul>
+    <div class="notice mt">本结果为业务辅助参考，不替代辅导员判断；可申请人工复核。</div>
+  </div>
+</div></div>
+</div></div></body></html>
